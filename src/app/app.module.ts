@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ObservableComponent } from './observable/observable.component';
 import { ContactsComponent } from './contacts/contacts.component';
-
+import {HttpClientModule}  from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +14,8 @@ import { ContactsComponent } from './contacts/contacts.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

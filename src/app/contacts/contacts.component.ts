@@ -11,7 +11,11 @@ export class ContactsComponent implements OnInit {
   constructor(public contacts:ContactsService) { }
   contactList :any;
   ngOnInit(): void {
-    this. contactList = this.contacts.getContacts();
+    //this. contactList = this.contacts.getContacts();
+    //Get the HTTP get Method 
+    this.contacts.getContacts().subscribe(data =>{
+      this.contactList = data ;
+    })
 
   }
 
