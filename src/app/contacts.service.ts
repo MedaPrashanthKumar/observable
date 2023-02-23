@@ -37,6 +37,12 @@ export class ContactsService {
     return this.httpClient.post("http://localhost:3000/contacts",createResource);
   }
 
-
+//Method for PUT method
+ updateContact(id:any,updatedBody:any){
+  const httpHeaders = new HttpHeaders();
+  httpHeaders.append('content-type','application/json');
+  const endpointURL = "http://localhost:3000/contacts"+id;
+  return this.httpClient.put(endpointURL,updatedBody);
+}
 
 }

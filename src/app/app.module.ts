@@ -7,11 +7,13 @@ import { ObservableComponent } from './observable/observable.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import {HttpClientModule}  from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { UpdateComponent } from './update/update.component';
 @NgModule({
   declarations: [
     AppComponent,
     ObservableComponent,
-    ContactsComponent
+    ContactsComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
