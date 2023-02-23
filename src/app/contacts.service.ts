@@ -64,4 +64,19 @@ deleteContact(contactId:any){
   return this.httpClient.delete(endPointUrl);
 }
 
+//get contact by ID
+getContactById(){
+  const httpParams = new HttpParams({
+    fromObject :{
+      id : ['2','3']
+    }
+  });
+
+ 
+
+
+  //http://localhost:3000/contacts?query=mark
+  return this.httpClient.get('http://localhost:3000/contacts',{params:httpParams});
+}
+
 }
