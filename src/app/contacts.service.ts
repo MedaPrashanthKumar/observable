@@ -19,6 +19,11 @@ export class ContactsService {
 
     // return contactList;
 
+    //Headers 
+    const httpHeaders = new HttpHeaders();
+    httpHeaders.append('content-type','application/json');
+    
+
     return this.httpClient.get("http://localhost:3000/contacts");
   }
 
@@ -26,4 +31,12 @@ export class ContactsService {
     console.log("calling from template directly");
     
   }
+  //Method for POST Method
+
+  createContact(createResource:any){
+    return this.httpClient.post("http://localhost:3000/contacts",createResource);
+  }
+
+
+
 }

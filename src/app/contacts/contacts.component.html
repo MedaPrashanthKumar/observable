@@ -23,3 +23,97 @@
 
 <!-- We can call the methods in the service directly in the template by making the service public in the constructor -->
 <button (click)="contacts.callingFromTemplate()">Calling directly</button>
+
+
+<!-- Form for Post Request -->
+
+<h1>Create Contact</h1>
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+        <form #formRef="ngForm" (ngSubmit)="addNewContact(formRef)" novalidate>
+          <!-- Name -->
+          <div class="form-floating m-3">
+            <input
+              type="number"
+              class="form-control"
+              id="userId"
+              placeholder="userId"
+              name="userId"
+             #userId="ngModel" ngModel
+             required  />
+            <label for="userId">userId</label>
+          </div>
+          <!-- Username Validations -->
+          <div *ngIf="userId.touched && userId.invalid" class="m-3" style="color:red;">
+            *userId is required
+          </div>
+
+
+
+          <!-- ID -->
+          <div class="form-floating m-3">
+            <input
+              type="number"
+              class="form-control"
+              id="id"
+              placeholder="ID"
+              name="id"
+             #id="ngModel" ngModel
+             required  />
+            <label for="username">Id</label>
+          </div>
+          <!-- Username Validations -->
+          <div *ngIf="id.touched && id.invalid" class="m-3" style="color:red;">
+            *Id is required
+          </div>
+
+          <!-- title -->
+          <div class="form-floating m-3">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              placeholder="title"
+              name="title" required
+              ngModel #title="ngModel"
+            />
+            <label for="floatingInput">title</label>
+          </div>
+  
+          <!-- title validations -->
+          <div *ngIf="title.touched && title.invalid" class="m-3" style="color:red;">
+            *title is required
+          </div>
+  
+          <!-- body -->
+          <div class="form-floating m-3">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              placeholder="body"
+              name="body" required
+              ngModel #body="ngModel"
+            />
+            <label for="floatingInput">body</label>
+          </div>
+  
+          <!-- title validations -->
+          <div *ngIf="body.touched && body.invalid" class="m-3" style="color:red;">
+            *body is required
+          </div>
+         
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-success m-3 " [disabled]="formRef.invalid">Submit</button>
+        </form>
+      </div>
+      <div class="col-sm-2"></div>
+    </div>
+  </div>
+  
+
+  <div *ngIf="msgTrue">Contact Created Successfully !!!!</div>
