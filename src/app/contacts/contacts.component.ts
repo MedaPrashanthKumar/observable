@@ -36,7 +36,14 @@ export class ContactsComponent implements OnInit {
     this.contacts.createContact(newFormdata).subscribe(data =>{
         this.msgTrue = true;
         console.log(data);
-        
+    });
+  }
+
+  //this contactId will be dynamic and will usually come from the UI click
+  deleteContact(contactId:any){
+    this.contacts.deleteContact(contactId).subscribe(data =>{
+      console.log(data);
+      
     });
   }
 

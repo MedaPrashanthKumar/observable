@@ -20,6 +20,7 @@ export class UpdateComponent implements OnInit {
         console.log("Updated data"+data);
     });
     
+    
 
   }
 }

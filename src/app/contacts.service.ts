@@ -20,11 +20,23 @@ export class ContactsService {
     // return contactList;
 
     //Headers 
-    const httpHeaders = new HttpHeaders();
-    httpHeaders.append('content-type','application/json');
-    
-
-    return this.httpClient.get("http://localhost:3000/contacts");
+    //const httpHeaders = new HttpHeaders();
+    //httpHeaders.append('content-type','application/json');
+    let httpHeaders = new HttpHeaders({
+      'content-type':'application/json',
+      'Authorization':'ARCTutorialsdfdfdfdfdf12345',
+      'timeOutSeconds':'3000'
+    });
+    //Headers are Immutable
+    //custom headers
+    httpHeaders = httpHeaders.set('arc-tutorial-id','118');
+   let time =  httpHeaders.get('timeOutSeconds');
+   if(time === '3000'){
+    //at the Api - we can check if Authorization is empty - redirect to login screen
+    //some custom logic
+    httpHeaders.set('Authorization','');
+   }
+    return this.httpClient.get("http://localhost:3000/contacts",{headers:httpHeaders});
   }
 
   callingFromTemplate(){
@@ -41,8 +53,15 @@ export class ContactsService {
  updateContact(id:any,updatedBody:any){
   const httpHeaders = new HttpHeaders();
   httpHeaders.append('content-type','application/json');
-  const endpointURL = "http://localhost:3000/contacts"+id;
+  const endpointURL = "http://localhost:3000/contacts/"+id;
   return this.httpClient.put(endpointURL,updatedBody);
+}
+
+
+//Method for delete HTTP Request
+deleteContact(contactId:any){
+  const endPointUrl = "http://localhost:3000/contacts/" + contactId;
+  return this.httpClient.delete(endPointUrl);
 }
 
 }
